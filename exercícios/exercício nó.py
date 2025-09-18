@@ -60,4 +60,4 @@ class ListaEncadeada:
         if atual == self.primeiro:
             self.primeiro = self.primeiro.proximo
         else:
-            anterio
+            anterioRR
