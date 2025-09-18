@@ -1,5 +1,5 @@
 class No:
-    def__innit__(self, valor):
+    def __init__(self, valor):
         self.valor = valor 
         self.proximo = None
 
@@ -7,7 +7,7 @@ class No:
         print(self.valor)
 
 class ListaEncadeada:
-    def__innit__(self):
+    def __init__(self):
         self.primeiro = None
     
     def insereInicio(self, valor):
@@ -38,7 +38,7 @@ class ListaEncadeada:
             print (f'A lista está vazia')
             return None
         atual = self.primeiro
-        while atual.valor != self.valor:
+        while atual.valor != valor:
             if atual.valor == None:
                 return None
             else:
@@ -60,4 +60,72 @@ class ListaEncadeada:
         if atual == self.primeiro:
             self.primeiro = self.primeiro.proximo
         else:
-            anterioRR
+            anterior.proximo = atual.proximo
+        return atual
+    
+#Início da Execução dos Passos
+# a. Demonstrar a inserção de cada um dos caracteres que compõem seu primeiro nome;
+meu_nome = "ALEXSANDER"
+lista = ListaEncadeada()
+
+print(f"Inserindo os caracteres do nome '{meu_nome}':")
+for letra in meu_nome:
+    lista.insereInicio(letra)
+    print(f"Inserido: {letra}")
+
+print("\n" + "="*40 + "\n")
+
+# b. Demonstre a impressão de todos os elementos inseridos no item a;
+print("Imprimindo todos os elementos da lista:")
+# Nota: Como usamos insereInicio, a lista estará na ordem inversa.
+lista.mostrar()
+
+print("\n" + "="*40 + "\n")
+
+# c. Faça a exclusão do primeiro elemento da lista;
+print("Excluindo o primeiro elemento da lista.")
+elemento_excluido_inicio = lista.excluirInicio()
+
+print("\n" + "="*40 + "\n")
+
+# d. Verifique se a operação executada no item c foi concluída;
+print("Verificando a exclusão do primeiro elemento:")
+if elemento_excluido_inicio is not None:
+    print(f"Operação concluída. Elemento '{elemento_excluido_inicio.valor}' foi removido.")
+    print("Estado atual da lista:")
+    lista.mostrar()
+else:
+    print("A lista já estava vazia, nada foi removido.")
+
+print("\n" + "="*40 + "\n")
+
+# e. Faça a pesquisa pelo último caractere do seu nome. Qual o retorno do algoritmo?
+ultimo_caractere = meu_nome[-1] # O último caractere é 'R'
+print(f"Pesquisando pelo último caractere do nome ('{ultimo_caractere}'):")
+
+resultado_pesquisa = lista.pesquisa(ultimo_caractere)
+
+print("\n   Qual o retorno do algoritmo?")
+if resultado_pesquisa is not None:
+    print(f"   O algoritmo retornou o objeto Nó que contém o valor '{resultado_pesquisa.valor}'.")
+else:
+    print(f"   O algoritmo retornou 'None'.")
+    print(f"   Isso ocorreu porque o caractere '{ultimo_caractere}' era o primeiro elemento da lista e foi removido no passo 'c'.")
+
+print("\n" + "="*40 + "\n")
+
+# f. Escolha um elemento qualquer (não pode ser o primeiro) e faça a sua exclusão.
+elemento_para_excluir = 'S'
+print(f"Excluindo um elemento que não é o primeiro (o caractere '{elemento_para_excluir}'):")
+elemento_excluido_meio = lista.excluirAleatorio(elemento_para_excluir)
+
+print("\n" + "="*40 + "\n")
+
+# g. Verifique se a operação executada no item f foi concluída;
+print("Verificando a exclusão do elemento escolhido:")
+if elemento_excluido_meio is not None:
+    print(f"   Operação concluída. Elemento '{elemento_excluido_meio.valor}' foi removido.")
+    print("   Estado final da lista:")
+    lista.mostrar()
+else:
+    print(f"   O elemento '{elemento_para_excluir}' não foi encontrado para exclusão.")
